@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do List</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --danger: #f72585;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 2.5rem;
+        }
+
+        .contenedor-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #inputTarea {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        #inputTarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(72, 149, 239, 0.2);
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            background-color: var(--primary);
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+        }
+
+        button:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .botones {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .botones button {
+            flex: 1;
+            max-width: 150px;
+        }
+
+        #btnT {
+            background-color: var(--primary);
+        }
+
+        #btnI {
+            background-color: #ff9e00;
+        }
+
+        #btnC {
+            background-color: var(--success);
+        }
+
+        #contenedor-tareas {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tarea {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .tarea:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .tarea.completa {
+            opacity: 0.7;
+            background-color: #e8f4fc;
+        }
+
+        .tarea.completa .texto-tarea {
+            text-decoration: line-through;
+            color: #6c757d;
+        }
+
+        .checkbox-tarea {
+            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .texto-tarea {
+            flex: 1;
+            font-size: 1.1rem;
+        }
+
+        .btn-eliminar {
+            background-color: var(--danger);
+            padding: 8px 12px;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .contenedor-input {
+                flex-direction: column;
+            }
+            
+            .botones {
+                flex-wrap: wrap;
+            }
+            
+            .botones button {
+                flex: 1 1 100%;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Contenedor de Tareas</h1>
+    <div class="contenedor-input">
+        <input type="text" id="inputTarea" placeholder="Escribe una tarea...">
+        <button id="btnAdd">Añadir Tarea</button>
+    </div>
+    <div class="botones">
+        <button id="btnT">Todo</button>
+        <button id="btnI">Incompletas</button>
+        <button id="btnC">Completas</button>
+    </div>
+    <div id="contenedor-tareas">
+        <!-- Las tareas se agregarán aquí dinámicamente -->
+    </div>
+</body>
+<script src="desarrollo.js"></script>
+</html>
