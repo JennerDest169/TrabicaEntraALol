@@ -1,5 +1,4 @@
 let tareas = [];
-let pepe;
 let Filtro = "btnT";
 const btnAdd = document.getElementById("btnAdd");
 
